@@ -32,15 +32,13 @@ def call(repoWithBranch) {
         ]
 
     fileOperations([
-        [$class: 'FolderCopyOperation',
-            includes: '**/*',
-            sourceFolder: "${clonePath}/${actionsPath}",
-            destinationFolder: '.actions'
-        ],
-        [$class: 'DeleteOperation',
-            includes: '**/*',
+        folderCopyOperation(
+            sourceLocation: "${clonePath}/${actionsPath}",
+            destinationLocation: '.actions'
+        ),
+        deleteOperation(
             recursive: true,
             path: "${clonePath}"
-        ]
+        )
     ])
 } 
