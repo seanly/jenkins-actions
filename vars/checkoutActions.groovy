@@ -36,9 +36,6 @@ def call(repoWithBranch) {
             sourceLocation: "${clonePath}/${actionsPath}",
             destinationLocation: '.actions'
         ),
-        deleteOperation(
-            recursive: true,
-            path: "${clonePath}"
-        )
+        fileDeleteOperation(includeFilePattern: "${clonePath}/**/*")
     ])
 } 
