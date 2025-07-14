@@ -34,8 +34,8 @@ def call(repoWithBranch) {
     fileOperations([
         folderCreateOperation(folderPath: '${actionsPath}'),
         fileCopyOperation(
-            sourceFiles: "${clonePath}/${actionsPath}/**/*",
-            targetLocation: '${actionsPath}'
+            includes: '${clonePath}/${actionsPath}/**/*',
+            targetLocation: '${actionsPath}/'
         ),
         folderDeleteOperation(folderPath: "${clonePath}")
     ])
